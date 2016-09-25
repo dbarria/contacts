@@ -46,6 +46,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Requerimientos del proyecto
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass-extras'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
