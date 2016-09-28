@@ -11,10 +11,11 @@ end
 
 namespace :data do
   desc "Populate table contacts from json file"
-  task :populate,[:filepath] => :environment do |t, args|
-    unless args.filepath
-      fail "Filepath must be supplied"
-    end
+  # task :populate,[:filepath] => :environment do |t, args|
+  task :populate => :environment do
+    # unless args.filepath
+    #   fail "Filepath must be supplied"
+    # end
     @parser = JSON::Stream::Parser.new do
       start_object   { @contact = Contact.new }
       key            {|k| @key = k }
@@ -22,7 +23,7 @@ namespace :data do
       value          {|v| @contact[@key] = v }
     end
 
-    file = File.open(args[:filepath],"r")
+    file = File.open(Rails.root.join("project-data-07-30.json"),"r")
     pb = ProgressBar.create(:total => file.readlines.size,:format => '%a [%B] %p%% %t')
     file.rewind
     file.each_line do |line|
