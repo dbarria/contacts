@@ -56,3 +56,8 @@ gem 'json-stream'
 gem 'awesome_print'
 gem 'ruby-progressbar'
 gem 'will_paginate-bootstrap'
+
+
+group :production do
+  gem 'pg'
+end
