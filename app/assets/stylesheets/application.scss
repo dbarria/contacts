@@ -17,3 +17,8 @@
 .highlight {
     background-color: #FFFF88;
 }
+@media only screen and (min-width : 768px) {
+  #search-form input[type=search]{
+    width:430px !important;
+  }
+}

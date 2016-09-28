@@ -10,8 +10,7 @@
       <tr>
 
         <th><%= model_class.human_attribute_name(:name) %></th>
-        <th class="visible-lg"><%= model_class.human_attribute_name(:line1) %></th>
-        <th class="visible-lg"><%= model_class.human_attribute_name(:line2) %></th>
+        <th class="visible-lg"> <%=t '.address' %> </th>
         <th class="visible-sm visible-md visible-lg"><%= model_class.human_attribute_name(:city) %></th>
         <th class="visible-md visible-lg"><%= model_class.human_attribute_name(:state) %></th>
         <th class="visible-lg"><%= model_class.human_attribute_name(:zip) %></th>
@@ -23,8 +22,7 @@
     <% @contacts.each do |contact| %>
       <tr>
           <td><%= contact.name %></td>
-          <td class="visible-lg"><%= contact.line1 %></td>
-          <td class="visible-lg"><%= contact.line2 %></td>
+          <td class="visible-lg"><%= contact.line1 %><br><%= contact.line2 %></td>
           <td class="visible-sm visible-md visible-lg"><%= contact.city %></td>
           <td class="visible-md visible-lg"><%= contact.state %></td>
           <td class="visible-lg"><%= contact.zip %></td>
