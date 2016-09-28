@@ -50,4 +50,8 @@ gem 'bootstrap-sass-extras'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 2.5.3'
+gem 'json-stream'
+gem 'awesome_print'
+gem 'ruby-progressbar'
+gem 'will_paginate-bootstrap'

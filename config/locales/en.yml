@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+  home: "Home"
+  contacts: "Contacts"
+  helpers:
+    links:
+      show: "Show"
