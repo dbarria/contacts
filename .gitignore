@@ -38,5 +38,12 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
+
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
 # Ignore Byebug command history file.
 .byebug_history
