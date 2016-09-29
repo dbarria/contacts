@@ -10,10 +10,8 @@
   <dl>
       <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
       <dd><pre class="prettyprint"><%= @contact.name %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:line1) %></dt>
-      <dd><pre class="prettyprint"><%= @contact.line1 %></pre></dd>
-      <dt class="label label-default"><%= model_class.human_attribute_name(:line2) %></dt>
-      <dd><pre class="prettyprint"><%= @contact.line2 %></pre></dd>
+      <dt class="label label-default"> <%=t '.address' %> </dt>
+      <dd><pre class="prettyprint"><%= @contact.line1 %><br><%= @contact.line2 %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:city) %></dt>
       <dd><pre class="prettyprint"><%= @contact.city %></pre></dd>
       <dt class="label label-default"><%= model_class.human_attribute_name(:state) %></dt>

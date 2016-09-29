@@ -22,6 +22,7 @@
 en:
   hello: "Hello world"
   home: "Home"
+  address: "Street"
   contacts: "Contacts"
   helpers:
     links:
