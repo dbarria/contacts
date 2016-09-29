@@ -13,20 +13,17 @@
 ActiveRecord::Schema.define(version: 20160928010204) do
 
   create_table "contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",       limit: 100
-    t.string   "line1",      limit: 50
-    t.string   "line2",      limit: 50
-    t.string   "city",       limit: 35
-    t.string   "state",      limit: 20
-    t.string   "zip",        limit: 11
-    t.string   "phone",      limit: 20
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.index ["line1"], name: "index_contacts_on_line1", using: :btree
-    t.index ["line2"], name: "index_contacts_on_line2", using: :btree
-    t.index ["name", "line1", "line2", "city", "state", "zip", "phone"], name: "fulltext_search", type: :fulltext
-    t.index ["name"], name: "index_contacts_on_name", using: :btree
-    t.index ["phone"], name: "index_contacts_on_phone", using: :btree
+    t.string   "name",         limit: 100
+    t.string   "line1",        limit: 50
+    t.string   "line2",        limit: 50
+    t.string   "city",         limit: 35
+    t.string   "state",        limit: 20
+    t.string   "zip",          limit: 11
+    t.string   "phone",        limit: 20
+    t.string   "phone_number", limit: 20
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["name", "line1", "line2", "city", "state", "zip", "phone_number"], name: "fulltext_search", type: :fulltext
   end
 
 end

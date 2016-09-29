@@ -68,10 +68,11 @@
           <%= form_tag(search_contacts_path,method: :get, class: "navbar-form navbar-left", id: "search-form") do %>
             <div class="form-group" >
               <%= search_field_tag 'query',nil, class: "form-control", placeholder: 'Search by name, address or phone', value: params[:query]%>
+              <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+              <% end %>
             </div>
-            <%= button_tag(type: "submit", class: "btn btn-primary") do %>
-              <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            <% end %>
+
 
           <% end %>
         </div><!-- /.navbar-collapse -->

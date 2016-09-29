@@ -5,7 +5,7 @@ $ ->
   Turbolinks.enableProgressBar(true)
 $(document).on 'page:change', ->
 
-  $('.contactsTable').on 'click', 'tr', ->
+  $('.contactsTable').on 'click', 'tbody tr', ->
     Turbolinks.visit $(this).find('.btn-primary').attr('href')
     return
   $('body').on 'submit', '#search-form', (e)->
