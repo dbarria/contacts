@@ -1,0 +1,22 @@
+<%if  !@contacts.empty? %>
+  <%if  @page.nil? %>
+    $("#contact_list").html("<%= escape_javascript(render 'contact_list') %>");
+    if(!currentContactSelected){
+      $("#contactbody").html("<%= escape_javascript(render 'show') %>");
+      currentContactSelected = true;
+    }
+
+    if ($("#query").val() == ""){
+      $("#query").val("<%= escape_javascript(params[:query])%>")
+    }
+  <%else%>
+    $("#infinite-scrolling").remove();
+    $(".list-group").append("<%= escape_javascript(render 'contact_list') %>");
+  <%end%>
+<%else%>
+  $("#contact_list").html("");
+  $("#contactbody").html("");
+  $("#contactbody").append($("#no-results").clone());
+  $("#contactbody").find("#no-results").show();
+  currentContactSelected = false;
+<%end%>
