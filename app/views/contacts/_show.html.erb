@@ -1,0 +1,23 @@
+<%- model_class = Contact -%>
+<!-- <div class="page-header">
+  <h1><%=t '.title', default: model_class.model_name.human.titleize %></h1>
+</div> -->
+<div class="visible-xs">
+  <%= link_to t('.back', default: t("helpers.links.back")),"#!/", class: 'btn btn-default back'  %>
+</div>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @contact.name %></pre></dd>
+      <dt class="label label-default"> <%=t '.address' %> </dt>
+      <dd><pre class="prettyprint"><%= @contact.line1 %><br><%= @contact.line2 %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:city) %></dt>
+      <dd><pre class="prettyprint"><%= @contact.city %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:state) %></dt>
+      <dd><pre class="prettyprint"><%= @contact.state %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:zip) %></dt>
+      <dd><pre class="prettyprint"><%= @contact.zip %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:phone) %></dt>
+      <dd><pre class="prettyprint"><%= @contact.phone %></pre></dd>
+  </dl>
+</div>

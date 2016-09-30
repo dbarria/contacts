@@ -1,0 +1,7 @@
+
+
+
+      <%= render @contacts%>
+      <div id="infinite-scrolling" style ="display:none;" >
+        <%= will_paginate @contacts, renderer: BootstrapPagination::Rails %>
+      </div>

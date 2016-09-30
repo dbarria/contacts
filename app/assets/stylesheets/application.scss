@@ -13,25 +13,16 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "dashboard";
 
 .highlight {
-    background-color: #FFFF88;
+    background-color: #F0AD4E;
 }
 @media only screen and (min-width : 768px) {
   #search-form input[type=search]{
     width:430px !important;
   }
 }
-
-html.turbolinks-progress-bar::before {
-  background-color: red !important;
-  height: 5px !important;
-}
-
-.contactsTable tbody tr {
-    cursor: pointer;
-}
-
 
 #query{
   width: 80%;
