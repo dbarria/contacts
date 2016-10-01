@@ -54,8 +54,6 @@ function getParameterByName(name) {
 }
 
 $( document ).ready(function() {
-  console.log("location.pathname = " + location.pathname);
-  console.log("location.hash = " + location.hash);
   if(location.pathname == "/"){
     $.ajax({
       url: "/contacts",
@@ -80,14 +78,10 @@ $( document ).ready(function() {
 
 $(window).on('hashchange',function()
 {
-  var hash = location.hash;
-  console.log(hash);
-  if (!location.hash.includes("action=")){
+  console.log(location.hash);
     $.ajax({
       url: location.hash.replace("#!",""),
       method: "GET",
       dataType : 'script'
     })
-  }
-
 });
