@@ -18,8 +18,17 @@
 //= require_tree .
 
 var currentContactSelected = false;
-//TODO comportamiento para recarga de página con page>1
+
+function homeAction(){
+  $.ajax({
+    url: "/contacts",
+    method: "GET",
+    dataType : 'script'
+  })
+}
+
 function searchContactsAction(url){
+  $(".list-group").html("")
   $.ajax({
     url: url,
     method: "GET",
@@ -34,40 +43,51 @@ function showContactAction(url){
   })
 }
 
-$( document ).ready(function() {
-  console.log("asdasdasdas")
-  if(location.hash !== "" && location.hash.includes("#!")){
-    url = location.hash.replace("#!","");
-    url_parts = url.split("/");
-    //ROOT URL
-    if(url_parts[1] == ""){
-      return;
-    }
-    //Contacts controller
-    if(url_parts[1]=="contacts"){
-      //Search action
-      if(url_parts[1].includes("search")){
-        searchContactsAction(url);
-      //Show action
-      }else{
-        console.log("here?")
-        showContactAction(url);
-      }
-    }
+function getParameterByName(name) {
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+   if (results==null){
+      return null;
+   }
+   else{
+      return results[1] || 0;
+   }
+}
 
+$( document ).ready(function() {
+  console.log("location.pathname = " + location.pathname);
+  console.log("location.hash = " + location.hash);
+  if(location.pathname == "/"){
+    $.ajax({
+      url: "/contacts",
+      method: "GET",
+      dataType : 'script'
+    }).done(function(){
+      if(location.hash != ""){
+        $.ajax({
+          url: location.hash.replace("#!",""),
+          method: "GET",
+          dataType : 'script'
+        })
+      }
+    });
   }
+  $( "#search-form").on('ajax:beforeSend', function(event, xhr, settings) {
+    location.hash = "#!" + settings.url
+    return false
+  });
+
 });
 
 $(window).on('hashchange',function()
 {
   var hash = location.hash;
   console.log(hash);
-});
-
-
-$( document ).ajaxComplete(function( event, xhr, settings ) {
-  url = settings.url
-  console.log(url);
-  location.hash = "#!" + url.replace(base_url,"");
+  if (!location.hash.includes("action=")){
+    $.ajax({
+      url: location.hash.replace("#!",""),
+      method: "GET",
+      dataType : 'script'
+    })
+  }
 
 });
