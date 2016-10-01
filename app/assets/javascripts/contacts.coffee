@@ -52,6 +52,7 @@ loadMore = ->
 
 $(document).ajaxComplete ->
   if $("#query").val() == ""
-    $(".container-fluid").unhighlight();
+    $(".container-fluid .row").unhighlight();
   else
-    $(".container-fluid").highlight($("#query").val().split(" "));
+    $(".container-fluid .row").unhighlight();
+    $(".container-fluid .row").highlight($("#query").val().split(" "));
