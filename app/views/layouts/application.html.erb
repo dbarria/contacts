@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <%= viewport_meta_tag %>
+    <%= viewport_meta_tag(:user_scalable  => "1.0",:shrink_to_fit => "no",:user_scalable => "no") %>
+
+
     <title><%= content_for?(:title) ? yield(:title) : "Contacts" %></title>
     <%= csrf_meta_tags %>
 
@@ -91,11 +93,15 @@
 
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; Daniel Barria 2016</p>
-      </footer>
 
     </div> <!-- /container -->
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <p class="text-center">by Daniel Barria</p>
+      </div>
+    </footer>
+
     <div style="display:none" id="no-results" class="alert alert-danger" role="alert">Búsqueda no encontrada</div>
   </body>
 </html>

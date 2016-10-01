@@ -1,18 +1,15 @@
 <%if  !@contacts.empty? %>
-  <%if  @page.nil? %>
-    $("#contact_list").html("<%= escape_javascript(render 'contact_list') %>");
-    if(!currentContactSelected){
-      $("#contactbody").html("<%= escape_javascript(render 'show') %>");
-      currentContactSelected = true;
-    }
-
-    if ($("#query").val() == ""){
-      $("#query").val("<%= escape_javascript(params[:query])%>")
-    }
-  <%else%>
-    $("#infinite-scrolling").remove();
-    $(".list-group").append("<%= escape_javascript(render 'contact_list') %>");
-  <%end%>
+  $("#contact_list .list-group").html("<%= escape_javascript(render 'contact_list') %>");
+  if(!currentContactSelected){
+    $("#contactbody").html("<%= escape_javascript(render 'show') %>");
+    currentContactSelected = true;
+  }
+  if ($("#query").val() == ""){
+    $("#query").val("<%= escape_javascript(params[:query])%>")
+  }
+  $(".sidebar > #pagination-list").remove()
+  $("#pagination-list").detach().appendTo('.sidebar')
+  $("#pagination-list").show();
 <%else%>
   $("#contact_list").html("");
   $("#contactbody").html("");
