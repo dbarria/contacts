@@ -1,0 +1,4 @@
+  $("#contact_list .list-group").html("<%= escape_javascript(render 'contact_list') %>");
+  $(".sidebar > #pagination-list").remove()
+  $("#pagination-list").detach().appendTo('.sidebar')
+  $("#pagination-list").show();

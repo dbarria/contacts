@@ -1,18 +1,20 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_action :set_contact, only: [:show]
 
   # GET /contacts
   # GET /contacts.json
 
-  #hay que ver como reusar la lógica de search
   def index
       @page = params.has_key?(:page) ? params[:page] : nil
-      @contacts = Contact.order(name: :asc).paginate(page: params[:page], per_page: 30)
+      @contacts = Contact.order(name: :asc).paginate(page: params[:page])
       @contact = @contacts.first
       respond_to do |format|
-        format.js {render 'search'}
-        format.html {}
+        format.js {}
       end
+  end
+
+  def home
+
   end
 
   # GET /contacts/1
@@ -21,25 +23,23 @@ class ContactsController < ApplicationController
     # render :show, change: :contactbody, layout: false
     respond_to do |format|
       format.js {}
-      format.json { head :no_content }
-      format.html {}
     end
   end
 
   def search
       @page = params.has_key?(:page) ? params[:page] : nil
-      ap @page
+      # @backPage = params.has_key?(:backPage)
+      # @reload = params.has_key?(:reload)
       if params[:query].empty?
-        @contacts = Contact.order(name: :asc).paginate(page: params[:page], per_page: 30)
+        @contacts = Contact.order(name: :asc).paginate(page: params[:page])
         @contact = @contacts.first
       else
         @contacts = Contact.search(params)
         @contact = @contacts.first if !@contacts.empty?
+
       end
       respond_to do |format|
         format.js {}
-        format.json { head :no_content }
-        format.html { head :no_content }
       end
   end
 
