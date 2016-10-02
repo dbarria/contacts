@@ -1,0 +1,7 @@
+notifyApp('<%= escape_javascript(t('contacts.show.not_found'))%>' );
+(function($, viewport){
+  if(viewport.is('<sm')) {
+    $(".main").hide();
+    $(".sidebar").show();
+  }
+})(jQuery, ResponsiveBootstrapToolkit);

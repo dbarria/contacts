@@ -56,6 +56,7 @@ gem 'awesome_print'
 gem 'ruby-progressbar'
 # gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'gaffe'
 
 
 
