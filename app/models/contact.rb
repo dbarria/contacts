@@ -4,8 +4,9 @@ class Contact < ApplicationRecord
     self.zip_number = self.zip.tr("()-. ", "")
   end
   self.per_page = 30
-  def self.search(params)
 
+  #Método para realizar una búsqueda FullText en los campos name, line1, line2, city, state, zip_number, phone_number. MySQL no soporta busqueda de palabras parciales hacia atrás, solo hacia adelante =(
+  def self.search(params)
     tokens = Array.new
     query = params[:query]
     ap query

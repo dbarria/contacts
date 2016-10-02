@@ -13,6 +13,7 @@ class ContactsController < ApplicationController
       end
   end
 
+  #Acción que carga el contenedor para la SPA
   def home
 
   end
@@ -28,15 +29,13 @@ class ContactsController < ApplicationController
 
   def search
       @page = params.has_key?(:page) ? params[:page] : nil
-      # @backPage = params.has_key?(:backPage)
-      # @reload = params.has_key?(:reload)
+      #Si no existe query se muestran todos los resultados
       if params[:query].empty?
         @contacts = Contact.order(name: :asc).paginate(page: params[:page])
         @contact = @contacts.first
       else
         @contacts = Contact.search(params)
         @contact = @contacts.first if !@contacts.empty?
-
       end
       respond_to do |format|
         format.js {}
