@@ -1,5 +1,4 @@
 <%= render @contacts%>
 <div id="pagination-list" class="text-center" style ="display:none;" >
-<!-- <div id="pagination-list" style =";" > -->
   <%= will_paginate @contacts, renderer: BootstrapPagination::Rails, inner_window:0, outer_window: 0  %>
 </div>

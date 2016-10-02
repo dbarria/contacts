@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <%= viewport_meta_tag(:user_scalable  => "1.0",:shrink_to_fit => "no",:user_scalable => "no") %>
+    <%= viewport_meta_tag(:initial_scale  => "1.0",:shrink_to_fit => "no",:user_scalable => "no") %>
 
 
     <title><%= content_for?(:title) ? yield(:title) : "Contacts" %></title>
@@ -38,6 +38,9 @@
     <%= favicon_link_tag 'favicon.ico', rel: 'shortcut icon' %>
     <script type="text/javascript">
       base_url = "<%= @base_url %>";
+      window.paceOptions = {
+        ajax: true
+      }
     </script>
     <%= javascript_include_tag "application" %>
   </head>

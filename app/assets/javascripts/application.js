@@ -15,18 +15,13 @@
 //= require bootstrap-sprockets
 //= require jquery.highlight
 //= require bootstrap-toolkit.min
+//= require pace.min
 //= require_tree .
 
 var currentContactSelected = false;
 
-function homeAction(){
-  $.ajax({
-    url: "/contacts",
-    method: "GET",
-    dataType : 'script'
-  })
-}
 
+// Metodo para parsear query params
 function getParameterByName(name, url) {
   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
    if (results==null){
@@ -38,6 +33,7 @@ function getParameterByName(name, url) {
 }
 
 $( document ).ready(function() {
+  // Escuálido router para la SPA
   if(location.pathname == "/"){
     $.ajax({
       url: "/contacts",
@@ -53,6 +49,9 @@ $( document ).ready(function() {
       }
     });
   }
+
+  // Antes de enviar el formulario de búsqueda se actualiza el hash
+  // y se evita el envío ajax de RAILS UJS para utilizar nuestro escuálido router
   $( "#search-form").on('ajax:beforeSend', function(event, xhr, settings) {
     location.hash = "#!" + settings.url
     event.preventDefault();
@@ -67,7 +66,7 @@ $( document ).ready(function() {
   }
 
 });
-
+// Implentación de historial de navegador en base a hashtag
 $(window).on('hashchange',function()
 {
     $.ajax({

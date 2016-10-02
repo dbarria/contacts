@@ -13,10 +13,12 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "united.min";
+@import "dataurl";
 @import "dashboard";
 
 .highlight {
-    background-color: #F0AD4E;
+    background-color: #DFF0D8;
 }
 @media only screen and (min-width : 768px) {
   #search-form input[type=search]{
