@@ -22,8 +22,11 @@
 en:
   hello: "Hello world"
   home: "Home"
-  address: "Street"
-  contacts: "Contacts"
+  app_title: "Contacts"
+  contacts:
+    show:
+      address: "Street Address"
   helpers:
     links:
       show: "Show"
+      back: "Back"

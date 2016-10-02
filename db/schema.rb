@@ -19,11 +19,12 @@ ActiveRecord::Schema.define(version: 20160928010204) do
     t.string   "city",         limit: 35
     t.string   "state",        limit: 20
     t.string   "zip",          limit: 11
+    t.string   "zip_number",   limit: 11
     t.string   "phone",        limit: 20
     t.string   "phone_number", limit: 20
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.index ["name", "line1", "line2", "city", "state", "zip", "phone_number"], name: "fulltext_search", type: :fulltext
+    t.index ["name", "line1", "line2", "city", "state", "zip_number", "phone_number"], name: "fulltext_search", type: :fulltext
   end
 
 end
