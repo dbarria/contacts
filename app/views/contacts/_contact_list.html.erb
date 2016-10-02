@@ -1,4 +1,7 @@
 <%= render @contacts%>
 <div id="pagination-list" class="text-center" style ="display:none;" >
-  <%= will_paginate @contacts, renderer: BootstrapPagination::Rails, inner_window:0, outer_window: 0  %>
+  <%= will_paginate @contacts, renderer: BootstrapPagination::Rails, inner_window:0, outer_window: 0, next_label: "→", previous_label: "←"  %>
+</div>
+<div id="pagination-entries" class="text-center" style ="display:none;">
+  <%= page_entries_info @contacts %>
 </div>
