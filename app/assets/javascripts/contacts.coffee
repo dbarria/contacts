@@ -50,6 +50,8 @@
 # 2) Implementar un Fulltext decente que acepte caracteres decentes y retorne los tokens encontrados para destacar en vista
 $(document).ajaxComplete ->
   if $("#query").val() == ""
-    $(".container-fluid .row").unhighlight();
+    $("#list-container").unhighlight();
+    $("#contactbody").unhighlight();
   else
-    $(".container-fluid .row").highlight($("#query").val().split(" "));
+    $("#list-container").highlight($("#query").val().split(" "));
+    $("#contactbody").highlight($("#query").val().split(" "));
