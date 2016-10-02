@@ -5,9 +5,7 @@ $(".sidebar > #pagination-list").remove()
     $("#contactbody").html("<%= escape_javascript(render 'show') %>");
     currentContactSelected = true;
   }
-  if ($("#query").val() == ""){
-    $("#query").val("<%= escape_javascript(params[:query])%>")
-  }
+
   $("#pagination-list").detach().appendTo('.sidebar')
   $("#pagination-list").show();
 <%else%>

@@ -6,11 +6,8 @@
     if viewport.is('<sm') && location.hash.match(/#!\/contacts\/\d+/)
       $(".main").show();
       $(".sidebar").hide();
-    $('.loadmore').click ->
-      loadMore();
-      return
     $('#query').keyup ->
-      $('#search-form').submit();
+      $('#search-form').submit()
       return
     $('body').on 'click', '.list-group a', ->
       if viewport.is('<sm')
@@ -33,26 +30,10 @@
   return
 ) jQuery, ResponsiveBootstrapToolkit
 
-loadMore = ->
-  button = $("#loadmore");
-  $.ajax(
-    url: $('.pagination .next a').attr('href')
-    method: 'GET'
-    dataType: 'script'
-    beforeSend: ->
-      button.button('loading');
-      return
-  ).done(->
-    button.button('reset');
-    return
-  ).fail ->
-    button.button('reset');
-    return
-  return
+
 
 $(document).ajaxComplete ->
   if $("#query").val() == ""
     $(".container-fluid .row").unhighlight();
   else
-    $(".container-fluid .row").unhighlight();
     $(".container-fluid .row").highlight($("#query").val().split(" "));

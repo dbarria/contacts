@@ -7,6 +7,7 @@ class CreateContacts < ActiveRecord::Migration[5.0]
       t.string :city, limit:35
       t.string :state, limit:20
       t.string :zip, limit: 11
+      t.string :zip_number, limit: 11
       t.string :phone, limit:20
       t.string :phone_number, limit:20
       t.timestamps

@@ -27,23 +27,7 @@ function homeAction(){
   })
 }
 
-function searchContactsAction(url){
-  $(".list-group").html("")
-  $.ajax({
-    url: url,
-    method: "GET",
-    dataType : 'script'
-  })
-}
-function showContactAction(url){
-  $.ajax({
-    url: url,
-    method: "GET",
-    dataType : 'script'
-  })
-}
-
-function getParameterByName(name) {
+function getParameterByName(name, url) {
   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
    if (results==null){
       return null;
@@ -71,14 +55,21 @@ $( document ).ready(function() {
   }
   $( "#search-form").on('ajax:beforeSend', function(event, xhr, settings) {
     location.hash = "#!" + settings.url
+    event.preventDefault();
     return false
   });
+
+  if($("#query").val() == ""){
+    var queryParam =  getParameterByName('query')
+    if (queryParam){
+      $("#query").val(queryParam)
+    }
+  }
 
 });
 
 $(window).on('hashchange',function()
 {
-  console.log(location.hash);
     $.ajax({
       url: location.hash.replace("#!",""),
       method: "GET",
