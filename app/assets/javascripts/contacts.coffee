@@ -11,6 +11,9 @@
     $('#query').keyup ->
       $('#search-form').submit()
       return
+    $("#reset").click ->
+      $("#query").val("")
+      $('#search-form').submit()
     #Responsividad para <SM
     $('body').on 'click', '.list-group a', ->
       if viewport.is('<sm')
