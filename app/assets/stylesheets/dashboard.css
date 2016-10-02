@@ -87,6 +87,7 @@ body {
     padding-left: 40px;
     display: block;
   }
+
 }
 .main .page-header {
   margin-top: 0;
@@ -166,6 +167,6 @@ body {
   line-height: 2em;
 }
 
-#loadmore{
-  margin-bottom: 40px;
+#pagination-entries{
+  font-size: 12px;
 }
