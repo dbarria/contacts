@@ -21,6 +21,7 @@
 }
 
 .pace .pace-progress {
+  height: 12px;
   background-color: #29d;
   position: fixed;
   top: 0;
@@ -31,6 +32,7 @@
 }
 
 .pace .pace-activity {
+  height: 12px;
   position: fixed;
   top: 0;
   right: -32px;
