@@ -1,4 +1,5 @@
 $(".sidebar > #pagination-list").remove()
+$(".sidebar > #pagination-entries").remove()
 <%if  !@contacts.empty? %>
   $("#contact_list .list-group").html("<%= escape_javascript(render 'contact_list') %>");
   if(!currentContactSelected){
