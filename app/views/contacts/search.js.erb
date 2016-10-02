@@ -15,7 +15,10 @@ $(".sidebar > #pagination-entries").remove()
 <%else%>
   $("#contact_list .list-group").html("");
   $("#contactbody").html("");
-  $("#contactbody").append($("#no-results").clone());
-  $("#contactbody").find("#no-results").show();
+  // $("#contactbody").append($("#no-results").clone());
+  // $("#contactbody").find("#no-results").show();
+
+  notifyApp("<%= escape_javascript(t('contacts.search.no_results'))%>" )
+
   currentContactSelected = false;
 <%end%>

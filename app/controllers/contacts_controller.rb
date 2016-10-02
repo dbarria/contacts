@@ -1,6 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show]
-
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found_error
   # GET /contacts
   # GET /contacts.json
 
@@ -22,6 +22,7 @@ class ContactsController < ApplicationController
   # GET /contacts/1.json
   def show
     # render :show, change: :contactbody, layout: false
+    ap @contact
     respond_to do |format|
       format.js {}
     end
@@ -40,6 +41,13 @@ class ContactsController < ApplicationController
       respond_to do |format|
         format.js {}
       end
+  end
+
+  protected
+  def not_found_error
+    respond_to do |format|
+      format.js {render 'not_found_error'}
+    end
   end
 
   private

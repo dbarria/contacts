@@ -16,10 +16,22 @@
 //= require jquery.highlight
 //= require bootstrap-toolkit.min
 //= require pace.min
+//= require bootstrap-notify.min
 //= require_tree .
 
 var currentContactSelected = false;
 
+function notifyApp(text){
+  $.notify({
+  	// options
+    icon: 'glyphicon glyphicon-warning-sign',
+  	message: text
+  },{
+  	// settings
+  	type: 'danger'
+  });
+
+}
 
 // Metodo para parsear query params
 function getParameterByName(name, url) {

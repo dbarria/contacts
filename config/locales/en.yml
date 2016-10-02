@@ -26,6 +26,9 @@ en:
   contacts:
     show:
       address: "Street Address"
+      not_found: "Contact not found"
+    search:
+      no_results: "No results were found"
   helpers:
     links:
       show: "Show"
