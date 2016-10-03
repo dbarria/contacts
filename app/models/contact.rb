@@ -9,7 +9,6 @@ class Contact < ApplicationRecord
   def self.search(params)
     tokens = Array.new
     query = params[:query]
-    ap query
 
     #Se extraen los numeros con ()-.\s
     #Para posteriormente buscar en los campos númericos
@@ -20,14 +19,13 @@ class Contact < ApplicationRecord
       number = matchNumber[0]
       query.slice!(number)
       number = number.tr("()-. ", "")
-      ap number
       tokens << number
     end
     query = query.split(" ")
     tokens = query + tokens
     tokens.delete_if {|x| x.size <= 2}
     if tokens.size > 0
-      terms = tokens.join("* +*").insert(0, "+*") + "*"
+      terms = tokens.join("*) +(*").insert(0, "+(*") + "*)"
       sql = "SELECT * FROM contacts WHERE MATCH(name, line1, line2, city, state, zip_number, phone_number) AGAINST (? IN BOOLEAN MODE) ORDER BY name ASC"
       contacts = self.paginate_by_sql([sql,terms],page: params[:page])
     else
