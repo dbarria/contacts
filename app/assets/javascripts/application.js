@@ -65,6 +65,8 @@ $( document ).ready(function() {
   // Antes de enviar el formulario de búsqueda se actualiza el hash
   // y se evita el envío ajax de RAILS UJS para utilizar nuestro escuálido router
   $( "#search-form").on('ajax:beforeSend', function(event, xhr, settings) {
+    $("#list-container").unhighlight();
+    $("#contactbody").unhighlight();
     location.hash = "#!" + settings.url
     event.preventDefault();
     return false
@@ -73,7 +75,7 @@ $( document ).ready(function() {
   if($("#query").val() == ""){
     var queryParam =  getParameterByName('query')
     if (queryParam){
-      $("#query").val(queryParam)
+      $("#query").val(queryParam.replace(/\+/g, ' '))
     }
   }
 
