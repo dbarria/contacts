@@ -1,24 +1,9 @@
-# README
+# Contacts - Example Rails App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* bundle install
+* create database
+* Setup database config file
+* bin/rake db:migrate
+* rake data:populate to populate initial data (~100.000 rows)
+* bin/rails server
+* Go to http://127.0.0.1:3000/
